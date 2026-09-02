@@ -4,134 +4,159 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Veera Valan Solutions | IT Consultancy & Software Services</title>
+
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #0f172a;
-      color: #f8fafc;
-      line-height: 1.6;
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color:#f8fafc;
+      line-height:1.6;
+      background:#0f172a;
     }
+
+    /* Navigation */
+    nav {
+      background:rgba(30,41,59,0.9);
+      padding:1rem;
+      display:flex; justify-content:center; gap:2rem;
+      border-bottom:1px solid rgba(255,255,255,0.1);
+    }
+    nav a {
+      color:#84cc16; text-decoration:none; font-weight:600;
+      transition:.3s;
+    }
+    nav a:hover { color:#eab308; }
+
+    /* Header */
     header {
-      padding: 2rem 1rem;
-      text-align: center;
-      background-color: #1e293b;
-      border-bottom: 1px solid #334155;
+      text-align:center; padding:2rem 1rem;
     }
+    .logo { width:90px; height:auto; }
+    .logo-tagline { color:#84cc16; font-size:0.85rem; font-weight:700; letter-spacing:2px; }
+
+    /* Hero */
     .hero {
-      max-width: 800px;
-      margin: 4rem auto 2rem;
-      padding: 0 1.5rem;
-      text-align: center;
+      max-width:900px; margin:3rem auto; text-align:center; padding:0 1.5rem;
     }
-    .hero h1 {
-      font-size: 2.5rem;
-      color: #38bdf8;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      font-size: 1.25rem;
-      color: #94a3b8;
-      margin-bottom: 2rem;
-    }
-    .tagline {
-      display: inline-block;
-      font-weight: 600;
-      color: #38bdf8;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-    }
+    .hero h1 { color:#84cc16; font-size:2.5rem; margin-bottom:1rem; }
+    .hero p { color:#cbd5e1; font-size:1.2rem; }
+    .hero-values { color:#eab308; margin-top:1rem; font-weight:700; letter-spacing:2px; }
+
+    /* Services */
     .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      max-width: 1000px;
-      margin: 3rem auto;
-      padding: 0 1.5rem;
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:1.5rem; max-width:1100px; margin:3rem auto; padding:0 1.5rem;
     }
     .card {
-      background: #1e293b;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-      border: 1px solid #334155;
-      text-align: left;
+      background:rgba(30,41,59,0.7);
+      padding:2rem; border-radius:12px;
+      border:1px solid rgba(255,255,255,0.1);
+      box-shadow:0 10px 25px rgba(0,0,0,0.3);
     }
-    .card h3 {
-      color: #38bdf8;
-      margin-bottom: 0.75rem;
-    }
-    .card p {
-      color: #94a3b8;
-      font-size: 0.95rem;
-    }
-    .contact-section {
-      text-align: center;
-      margin: 4rem 1.5rem;
-    }
+    .card h3 { color:#84cc16; margin-bottom:0.75rem; }
+    .card p { color:#cbd5e1; }
+
+    /* Global Support */
+    .global-support { text-align:center; margin:4rem 1.5rem; }
+    .global-support h2 { color:#84cc16; margin-bottom:1rem; }
+    .global-support p { color:#cbd5e1; max-width:800px; margin:auto; }
+
+    /* Contact */
+    .contact-section { text-align:center; margin:4rem 1.5rem; }
     .contact-link {
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: #0284c7;
-      color: #ffffff;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 600;
-      transition: background-color 0.2s ease;
+      display:inline-block; padding:14px 28px;
+      text-decoration:none; color:white;
+      border-radius:8px; font-weight:600;
+      background:linear-gradient(135deg,#65a30d,#eab308);
+      transition:.3s;
     }
-    .contact-link:hover {
-      background-color: #0369a1;
-    }
+    .contact-link:hover { background:linear-gradient(135deg,#4d7c0f,#ca8a04); }
+
+    /* Footer */
     footer {
-      text-align: center;
-      padding: 2rem;
-      color: #64748b;
-      font-size: 0.875rem;
-      border-top: 1px solid #1e293b;
+      text-align:center; padding:2rem;
+      color:#94a3b8;
+      border-top:1px solid rgba(255,255,255,0.1);
+    }
+
+    @media(max-width:768px) {
+      .hero h1 { font-size:2rem; }
+      .logo { width:60px; }
     }
   </style>
 </head>
+
 <body>
+  <nav>
+    <a href="#hero">Home</a>
+    <a href="#services">Services</a>
+    <a href="#global-support">Global Support</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
   <header>
+    <img src="images/vvs-logo.png" alt="Veera Valan Solutions Logo" class="logo">
     <h2>Veera Valan Solutions</h2>
+    <p class="logo-tagline">TRUTH IS OUR STRENGTH</p>
   </header>
 
-  <section class="hero">
-    <span class="tagline">Truth is Our Strength</span>
-    <h1>Empowering Global Businesses with Modern Tech Solutions</h1>
-    <p>We deliver reliable software engineering, and IT consultancy services tailored for international growth.</p>
+  <section id="hero" class="hero">
+    <h1>Empowering Engineers & Businesses Globally</h1>
+    <p>Delivering trusted IT consultancy, software testing, application development, and gaming solutions — guided by 20+ years of engineering excellence.</p>
+    <p class="hero-values">Truth • Trust • Technology • Transformation</p>
   </section>
 
-  <section class="services">
-    <div class="card">
-      <h3>Custom Software Development</h3>
-      <p>Scalable web and backend solutions built with modern technology stacks tailored to your business needs.</p>
-    </div>
-    <div class="card">
-      <h3>IT Consultancy & Architecture</h3>
-      <p>Expert advice on system design,  and technology optimization for operational efficiency.</p>
-    </div>
-    <div class="card">
-      <h3>Global Operations & Support</h3>
-      <p>Seamless maintenance, integration, and technical support to keep your services running 8/6 globally.</p>
-    </div>
+<section id="services" class="services">
+  <div class="card">
+    <h3>Free Counselling & Consultations</h3>
+    <p>Expert guidance for technology strategy and process optimization. Helping engineers overcome workplace stress and challenges.</p>
+  </div>
+  <div class="card">
+    <h3>Documents Verification</h3>
+    <p>Accurate validation and compliance checks for professional and business needs.</p>
+  </div>
+  <div class="card">
+    <h3>Application Testing</h3>
+    <p>Comprehensive validation of applications to ensure functionality, performance, usability, and security across industries.</p>
+  </div>
+  <div class="card">
+    <h3>Unit Testing for Mission-Critical Systems</h3>
+    <p>Rigorous code-level validation tailored for safety-critical domains such as rail, avionics, and defense.</p>
+  </div>
+  <div class="card">
+    <h3>Application Development</h3>
+    <p>Custom solutions built to scale, from enterprise systems to modern web apps.</p>
+  </div>
+
+  <div class="card">
+    <h3>Gaming & Security Solutions</h3>
+    <p>Interactive, secure, and value-driven games designed with modern engines.</p>
+  </div>
+</section>
+
+
+
+  <section id="global-support" class="global-support">
+    <h2>🌍 Global Support Initiative</h2>
+    <p>Veera Valan Solutions extends its expertise worldwide — empowering engineers and businesses with flexible consultation, technical support, and innovative solutions. Truth, Technology and Transformation for Quality.</p>
   </section>
 
-  <section class="contact-section">
-    <h2 style="margin-bottom: 1rem;">Ready to collaborate?</h2>
-    <a href="mailto:veeravalansolutions@gmail.com" class="contact-link">Get in Touch</a>
-  </section>
+
+<section id="contact" class="contact-section">
+  <h2 style="margin-bottom:1rem;">Ready to collaborate?</h2>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSeIaTmEiwP1gPwCesKKKousoO-gOqLM4po92lP-5CvNO9BvrQ/viewform" target="_blank">
+  <button>Contact Us</button>
+</a>
+
+</section>
+
+
+
 
   <footer>
-    <p>&copy; 2026 Veera Valan Solutions. All rights reserved.</p>
+    <p>&copy; 2026 Veera Valan Solutions. All Rights Reserved.</p>
+    <p>🌍 Global Support | Services </p>
   </footer>
-
 </body>
 </html>
