@@ -35,6 +35,14 @@
     .logo { width:90px; height:auto; }
     .logo-tagline { color:#84cc16; font-size:0.85rem; font-weight:700; letter-spacing:2px; }
 
+.tagline {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #f0f0f0;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
     /* Hero */
     .hero {
       max-width:900px; margin:3rem auto; text-align:center; padding:0 1.5rem;
@@ -84,7 +92,32 @@
       .hero h1 { font-size:2rem; }
       .logo { width:60px; }
     }
+.site-header {
+  padding: 20px;
+  background-color: #111; /* adjust to match your theme */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* center horizontally */
+  gap: 15px; /* space between logo and text */
+}
+
+.logo {
+  height: 80px; /* adjust size as needed */
+}
+
+.company-name {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #f0f0f0; /* adjust to match your palette */
+  margin: 0;
+}
+
   </style>
+
+
 </head>
 
 <body>
@@ -95,16 +128,19 @@
     <a href="#contact">Contact</a>
   </nav>
 
-  <header>
+<header class="site-header">
+  <div class="logo-container">
     <img src="images/vvs-logo.png" alt="Veera Valan Solutions Logo" class="logo">
-    <h2>Veera Valan Solutions</h2>
-    <p class="logo-tagline">TRUTH IS OUR STRENGTH</p>
-  </header>
+    <h1 class="company-name">Veera Valan Solutions</h1>
+  </div>
+</header>
+
 
   <section id="hero" class="hero">
     <h1>Empowering Engineers & Businesses Globally</h1>
-    <p>Delivering Trusted Consultancy, Testing, Development, Gaming, and Management Support — guided by 20+ years of engineering excellence.</p>
-    <p class="hero-values">Truth • Trust • Technology • Transformation</p>
+    <p>Delivering trusted IT consultancy, software testing, application development, and gaming solutions — guided by 20+ years of engineering excellence.</p>
+<h2 class="tagline">Truth • Technology • Transformation</h2>
+
   </section>
 
 <section id="services" class="services">
@@ -132,7 +168,6 @@
   <h3>Inspection, Review & Management Support</h3>
   <p>Providing independent inspection, review, and management consultancy services — ensuring quality, compliance, and trusted oversight across industries.</p>
 </div>
-
   <div class="card">
     <h3>Gaming & Security Solutions</h3>
     <p>Interactive, secure, and value-driven games designed with modern engines.</p>
@@ -154,8 +189,6 @@
 </a>
 
 </section>
-
-
 
 
   <footer>
