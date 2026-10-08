@@ -1,234 +1,392 @@
 <!DOCTYPE html>
-<!-- saved from url=(0038)https://veeravalansolutions.github.io/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Veera Valan Solutions | Independent QA, Testing , V&V and Software Services </title>
+  <title>Veera Valan Solutions | Independent QA, V&V and Software Services</title>
 
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color:#f8fafc;
-      line-height:1.6;
-      background:#0f172a;
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #f8fafc;
+      line-height: 1.6;
+      background: #0f172a;
+    }
+
+    /* Target offset for smooth scrolling under sticky nav */
+    section, .section-title {
+      scroll-margin-top: 80px;
     }
 
     /* Navigation */
     nav {
-      background:rgba(30,41,59,0.9);
-      padding:1rem;
-      display:flex; justify-content:center; gap:2rem;
-      border-bottom:1px solid rgba(255,255,255,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(8px);
+      padding: 1rem;
+      display: flex; 
+      justify-content: center; 
+      gap: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     nav a {
-      color:#84cc16; text-decoration:none; font-weight:600;
-      transition:.3s;
+      color: #cbd5e1; 
+      text-decoration: none; 
+      font-weight: 600;
+      transition: color 0.3s ease;
     }
-    nav a:hover { color:#eab308; }
+    nav a:hover { color: #84cc16; }
 
-    /* Header */
-    header {
-      text-align:center; padding:2rem 1rem;
+    /* Site Header */
+    .site-header {
+      padding: 2.5rem 1rem 1rem;
+      text-align: center;
     }
-    .logo { width:90px; height:auto; }
-    .logo-tagline { color:#84cc16; font-size:0.85rem; font-weight:700; letter-spacing:2px; }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+    .logo {
+      height: 70px;
+      width: auto;
+    }
+    .company-name {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #f8fafc;
+      letter-spacing: -0.5px;
+    }
 
-.tagline {
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: #f0f0f0;
-  text-align: center;
-  letter-spacing: 2px;
-}
+    /* Vision & Mission Section */
+    .vision-mission-section {
+      max-width: 1100px;
+      margin: 0 auto 4rem;
+      padding: 0 1.5rem;
+    }
+
+    .vision-mission-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .vm-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+      padding: 2.5rem 2rem;
+      border-radius: 12px;
+      border-left: 4px solid #84cc16;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .vm-card.mission {
+      border-left-color: #eab308;
+    }
+
+    .vm-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .vm-card.vision h2 { color: #84cc16; }
+    .vm-card.mission h2 { color: #eab308; }
+
+    .vm-card p {
+      color: #cbd5e1;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
 
     /* Hero */
     .hero {
-      max-width:900px; margin:3rem auto; text-align:center; padding:0 1.5rem;
+      max-width: 900px; 
+      margin: 2rem auto 4rem; 
+      text-align: center; 
+      padding: 0 1.5rem;
     }
-    .hero h1 { color:#84cc16; font-size:2.5rem; margin-bottom:1rem; }
-    .hero p { color:#cbd5e1; font-size:1.2rem; }
-    .hero-values { color:#eab308; margin-top:1rem; font-weight:700; letter-spacing:2px; }
+    .hero h1 { 
+      color: #84cc16; 
+      font-size: 2.5rem; 
+      margin-bottom: 0.75rem; 
+    }
+    .hero .domains {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-bottom: 1rem;
+    }
+    .hero .experience {
+      display: inline-block;
+      background: rgba(132, 204, 22, 0.1);
+      color: #84cc16;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      border: 1px solid rgba(132, 204, 22, 0.3);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    .hero p.description { 
+      color: #94a3b8; 
+      font-size: 1.1rem; 
+      max-width: 750px;
+      margin: 0 auto 1.5rem;
+    }
+    .hero .motto { 
+      color: #eab308; 
+      font-size: 1.1rem;
+      font-weight: 700; 
+      letter-spacing: 2px; 
+      text-transform: uppercase;
+    }
 
-    /* Services */
+    /* Services Section */
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      color: #f8fafc;
+      margin-bottom: 2rem;
+    }
     .services {
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:1.5rem; max-width:1100px; margin:3rem auto; padding:0 1.5rem;
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem; 
+      max-width: 1100px; 
+      margin: 0 auto 4rem; 
+      padding: 0 1.5rem;
     }
     .card {
-      background:rgba(30,41,59,0.7);
-      padding:2rem; border-radius:12px;
-      border:1px solid rgba(255,255,255,0.1);
-      box-shadow:0 10px 25px rgba(0,0,0,0.3);
+      background: rgba(30, 41, 59, 0.7);
+      padding: 2rem; 
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, border-color 0.3s ease;
     }
-    .card h3 { color:#84cc16; margin-bottom:0.75rem; }
-    .card p { color:#cbd5e1; }
-
-    /* Global Support */
-    .global-support { text-align:center; margin:4rem 1.5rem; }
-    .global-support h2 { color:#84cc16; margin-bottom:1rem; }
-    .global-support p { color:#cbd5e1; max-width:800px; margin:auto; }
-
-    /* Contact */
-    .contact-section { text-align:center; margin:4rem 1.5rem; }
-    .contact-link {
-      display:inline-block; padding:14px 28px;
-      text-decoration:none; color:white;
-      border-radius:8px; font-weight:600;
-      background:linear-gradient(135deg,#65a30d,#eab308);
-      transition:.3s;
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(132, 204, 22, 0.4);
     }
-    .contact-link:hover { background:linear-gradient(135deg,#4d7c0f,#ca8a04); }
+    .card h3 { 
+      color: #84cc16; 
+      margin-bottom: 0.75rem; 
+      font-size: 1.2rem;
+    }
+    .card p { 
+      color: #cbd5e1; 
+      font-size: 0.95rem;
+    }
+
+    /* Info Sections */
+    .info-section { 
+      text-align: center; 
+      max-width: 800px;
+      margin: 0 auto 4rem; 
+      padding: 0 1.5rem;
+    }
+    .info-section h2 { 
+      color: #84cc16; 
+      margin-bottom: 1rem; 
+      font-size: 1.8rem;
+    }
+    .info-section p { 
+      color: #cbd5e1; 
+      font-size: 1.05rem;
+    }
+
+    /* Contact Section */
+    .contact-section { 
+      text-align: center; 
+      background: rgba(30, 41, 59, 0.4);
+      padding: 4rem 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      margin-bottom: 2rem;
+    }
+    .contact-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .contact-section p {
+      color: #cbd5e1;
+      margin-bottom: 2rem;
+    }
+    .contact-btn {
+      display: inline-block; 
+      padding: 14px 32px;
+      text-decoration: none; 
+      color: #0f172a;
+      border-radius: 8px; 
+      font-weight: 700;
+      font-size: 1rem;
+      background: linear-gradient(135deg, #84cc16, #eab308);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .contact-btn:hover { 
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(132, 204, 22, 0.3);
+    }
 
     /* Footer */
     footer {
-      text-align:center; padding:2rem;
-      color:#94a3b8;
-      border-top:1px solid rgba(255,255,255,0.1);
+      text-align: center; 
+      padding: 2.5rem 1.5rem;
+      color: #64748b;
+      font-size: 0.9rem;
     }
+    footer p { margin-bottom: 0.5rem; }
+    footer a { color: #94a3b8; text-decoration: none; }
+    footer a:hover { color: #84cc16; }
 
-    @media(max-width:768px) {
-      .hero h1 { font-size:2rem; }
-      .logo { width:60px; }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .company-name { font-size: 1.6rem; }
+      .logo { height: 50px; }
+      nav { gap: 1rem; font-size: 0.9rem; }
     }
-.site-header {
-  padding: 20px;
-  background-color: #111; /* adjust to match your theme */
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* center horizontally */
-  gap: 15px; /* space between logo and text */
-}
-
-.logo {
-  height: 80px; /* adjust size as needed */
-}
-
-.company-name {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #f0f0f0; /* adjust to match your palette */
-  margin: 0;
-}
-
   </style>
-
-
 </head>
 
 <body>
+
   <nav>
-    <a href="https://veeravalansolutions.github.io/#hero">Home</a>
-    <a href="https://veeravalansolutions.github.io/#services">Services</a>
-    <a href="https://veeravalansolutions.github.io/#global-support">Global Support</a>
-    <a href="https://veeravalansolutions.github.io/#contact">Contact</a>
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#industries">Industries</a>
+    <a href="#contact">Contact</a>
   </nav>
 
-<header class="site-header">
-  <div class="logo-container">
-     <img src="./images/vvs-logo.png" alt="Veera Valan Solutions Logo" class="logo">
-    <h1 class="company-name">Veera Valan Solutions</h1>
-  </div>
-</header>
-
+  <header class="site-header">
+    <div class="logo-container">
+      <img src="./images/vvs-logo.png" alt="Veera Valan Solutions Logo" class="logo">
+      <h1 class="company-name">Veera Valan Solutions</h1>
+    </div>
+  </header>
 
   <section id="hero" class="hero">
-<h1>Independent QA and Software Services </h1>
-
-<p class="tagline">
-Railway • Avionics • Defense • Safety-Critical Systems
-</p>
-<p>
-<strong> 20+ Years of Trusted Engineering Excellence.</strong>
-</p>
-<br>
-    <p>Helping organizations improve software quality, safety, reliability, and compliance through independent verification, validation, testing, inspections, and engineering consultancy.</p>
-<br>
-<h2 class="tagline">Truth • Technology • Transformation</h2>
-
-
-  </section>
-
-<section id="services" class="services">
-  <div class="card">
-    <h3>Application Testing</h3>
-    <p>Functional, integration, system, regression and acceptance testing to deliver reliable and secure software solutions.</p>
-  </div>
-  <div class="card">
-    <h3>Unit Testing for Mission-Critical Systems</h3>
-    <p>Code-level verification and unit testing support for safety-critical software in railway, avionics, defense and industrial domains.</p>
-  </div>
-  <div class="card">
-    <h3>Requirements & Documentation Review</h3>
-    <p>Independent assessment of requirements, design documents, test specifications and process documentation for quality and compliance.</p>
-  </div>
-  <div class="card">
-    <h3>Inspection, Review & QA Management Support</h3>
-    <p>Technical inspections, peer reviews, audit preparation, quality management and engineering process support.</p>
-  </div>
-  <div class="card">
-    <h3>Quality Process Assessment & Audit</h3>
-    <p>Evaluation and improvement of software development and testing processes aligned with industry standards and best practices.</p>
-  </div>
-<div class="card">
-  <h3>Application Development</h3>
-  <p>Design and development of desktop, web, automation, simulation and R&D applications using quality-driven engineering practices.</p>
-</div>
-  <div class="card">
-    <h3>Professional QA & Technology Consultation</h3>
-    <p>Expert guidance on software quality, testing strategies, V&V planning, process improvement and career mentoring. Helping engineers overcome workplace stress and challenges.</p>
-  </div>
-  <div class="card">
-    <h3>Independent Software Verification & Validation (IV&V)</h3>
-    <p>Independent assessment and verification of software lifecycle artifacts, tests, and compliance evidence for safety-critical projects.</p>
-  </div>
-    <div class="card">
-    <h3>Global Engineering Support</h3>
-    <p>Remote consultancy and project support for organizations worldwide seeking trusted software quality expertise.</p>
-  </div>
-</section>
-
-<section class="global-support">
-    <h2>🏭 Industries Served</h2>
-
-    <p>
-        Railway Systems • Avionics • Defense • Safety-Critical Software •
-        Industrial Automation • Research & Development •
-        Web & Desktop Applications
+    <h1>Independent QA & Software Services</h1>
+    <div class="domains">Railway • Avionics • Defense • Safety-Critical Systems</div>
+    <div class="experience">20+ Years of Trusted Engineering Excellence</div>
+    
+    <p class="description">
+      Helping organizations maximize software quality, safety, reliability, and compliance through independent verification, validation, testing, inspections, and consultancy.
     </p>
-</section>
-
-  <section id="global-support" class="global-support">
-    <h2>🌍 Global Support Initiative</h2>
-    <p>Veera Valan Solutions extends its expertise worldwide — empowering engineers and businesses with flexible consultation, technical support, and innovative solutions. Truth, Technology and Transformation for Quality.</p>
+    
+    <div class="motto">Truth • Technology • Transformation</div>
   </section>
 
+  <section id="about" class="vision-mission-section">
+    <div class="vision-mission-grid">
+      
+      <div class="vm-card vision">
+        <h2>👁️ Our Vision</h2>
+        <p>
+          To be a globally trusted, independent benchmark in software verification, validation, and quality engineering—setting the highest standard of safety, reliability, and precision across mission-critical and safety-critical industries worldwide.
+        </p>
+      </div>
 
-<section id="contact" class="contact-section">
-  <h2 style="margin-bottom:1rem;">Ready to collaborate?</h2>
-<p>
-Free initial consultation available.<br>
-Project pricing varies based on scope, complexity and duration.<br>
-Contact us for a customized proposal.
-</p>
-<br>
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSeIaTmEiwP1gPwCesKKKousoO-gOqLM4po92lP-5CvNO9BvrQ/viewform" target="_blank">
-  <button>Contact Us</button>
-</a>
+      <div class="vm-card mission">
+        <h2>🎯 Our Mission</h2>
+        <p>
+          To safeguard life-critical software ecosystems by delivering rigorous, objective, and standard-compliant V&V services. We commit to empowering engineering organizations through truth in verification, advanced technology practices, and transformative quality culture.
+        </p>
+      </div>
 
-</section>
+    </div>
+  </section>
 
+  <h2 class="section-title">Our Expertise</h2>
+  <section id="services" class="services">
+    <div class="card">
+      <h3>Independent V&V (IV&V)</h3>
+      <p>Independent assessment and verification of software lifecycle artifacts, tests, and compliance evidence for safety-critical projects.</p>
+    </div>
+    <div class="card">
+      <h3>Unit Testing for Mission-Critical Systems</h3>
+      <p>Code-level verification and unit testing support for safety-critical software in railway, avionics, defense, and industrial domains.</p>
+    </div>
+    <div class="card">
+      <h3>Application Testing</h3>
+      <p>Functional, integration, system, regression, and acceptance testing to deliver reliable and secure software solutions.</p>
+    </div>
+    <div class="card">
+      <h3>Requirements & Documentation Review</h3>
+      <p>Independent assessment of requirements, design documents, test specifications, and process documentation for compliance.</p>
+    </div>
+    <div class="card">
+      <h3>Inspection & QA Management</h3>
+      <p>Technical inspections, peer reviews, audit preparation, quality management, and engineering process support.</p>
+    </div>
+    <div class="card">
+      <h3>Quality Process Assessment</h3>
+      <p>Evaluation and optimization of software development and testing processes aligned with standard industry frameworks.</p>
+    </div>
+    <div class="card">
+      <h3>Application Development</h3>
+      <p>Design and development of desktop, web, automation, simulation, and R&D applications using quality-driven practices.</p>
+    </div>
+    <div class="card">
+      <h3>QA & Technology Consultation</h3>
+      <p>Expert guidance on testing strategies, V&V planning, process improvement, and engineering career mentorship.</p>
+    </div>
+    <div class="card">
+      <h3>Global Engineering Support</h3>
+      <p>Remote consultancy and technical project support for organizations worldwide seeking trusted software quality expertise.</p>
+    </div>
+  </section>
 
-<footer>
-  <p>© 2026 Veera Valan Solutions. All Rights Reserved.</p>
-  <p>🌍 Bengaluru, India | 📧 Veeravalansolutions@gmail.com | 📱 +91 8861302295</p>
-  <p>GSTIN: 29AAMPF3750E1ZR </p>
-</footer>
+  <section id="industries" class="info-section">
+    <h2>🏭 Industries Served</h2>
+    <p>
+      Railway Systems • Avionics • Defense • Safety-Critical Software •
+      Industrial Automation • Research & Development • Web & Desktop Applications
+    </p>
+  </section>
 
+  <section class="info-section">
+    <h2>🌍 Global Support Initiative</h2>
+    <p>
+      Veera Valan Solutions extends its expertise worldwide—empowering engineers and businesses with flexible consultation, technical support, and innovative testing solutions.
+    </p>
+  </section>
 
+  <section id="contact" class="contact-section">
+    <h2>Ready to collaborate?</h2>
+    <p>
+      Free initial consultation available.<br>
+      Contact us today to receive a customized proposal tailored to your project scope.
+    </p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIaTmEiwP1gPwCesKKKousoO-gOqLM4po92lP-5CvNO9BvrQ/viewform" target="_blank" class="contact-btn">
+      Request Consultation
+    </a>
+  </section>
 
-</body></html>
+  <footer>
+    <p>© 2026 Veera Valan Solutions. All Rights Reserved.</p>
+    <p>
+      🌍 Bengaluru, India | 
+      📧 <a href="mailto:Veeravalansolutions@gmail.com">Veeravalansolutions@gmail.com</a> | 
+      📱 <a href="tel:+918861302295">+91 8861302295</a>
+    </p>
+    <p>GSTIN: 29AAMPF3750E1ZR</p>
+  </footer>
+
+</body>
+</html>
